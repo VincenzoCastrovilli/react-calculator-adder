@@ -22,22 +22,6 @@ export default function App() {
     setAddends((prevState) => prevState.filter((elem) => elem.id !== index));
   }
 
-  function showSum() {
-    let sum = 0;
-    const numberArray = addends.map((item) => {
-      if (item.value === '' || item.isDisabled === true) {
-        return 0;
-      }
-      if (item.sign === '-') {
-        return -item.value;
-      } else {
-        return item.value;
-      }
-    });
-    sum = numberArray.reduce((total, current) => total + current, sum);
-    return sum;
-  }
-
   function handleValueChange(event, index) {
     const nextAddends = addends.map((item) => {
       if (item.id === index) {
@@ -82,6 +66,24 @@ export default function App() {
     setAddends(nextAddends);
   }
 
+  function performSum() {
+    let sum = 0;
+    const numberArray = addends.map((item) => {
+      if (item.value === '' || item.isDisabled === true) {
+        return 0;
+      }
+      if (item.sign === '-') {
+        return -item.value;
+      } else {
+        return item.value;
+      }
+    });
+    sum = numberArray.reduce((total, current) => total + current, sum);
+    return sum;
+  }
+
+  const totalSum = performSum();
+
   const listAddends = addends.map((item) => {
     return (
       <div className="addend" key={item.id}>
@@ -94,8 +96,12 @@ export default function App() {
           value={item.value}
           onChange={(e) => handleValueChange(e, item.id)}
         />
-        <button onClick={() => handleDisable(item.id)}>Disable</button>
-        <button onClick={() => handleDelete(item.id)}>Delete</button>
+        <button className="disable-btn" onClick={() => handleDisable(item.id)}>
+          {item.isDisabled ? 'Activate row' : 'Disable row'}
+        </button>
+        <button className="delete-btn" onClick={() => handleDelete(item.id)}>
+          Delete
+        </button>
       </div>
     );
   });
@@ -104,11 +110,13 @@ export default function App() {
     <>
       <div className="title">React Calculator</div>
 
-      <button className="add-btn" onClick={addRow}>
-        Add Row
-      </button>
-      {listAddends}
-      {showSum()}
+      <div className="container">
+        <button className="add-btn" onClick={addRow}>
+          Add Row
+        </button>
+        <div className="addend-list">{listAddends}</div>
+        <div className="sum">Total Sum: {totalSum}</div>
+      </div>
     </>
   );
 }

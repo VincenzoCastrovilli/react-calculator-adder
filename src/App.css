@@ -10,3 +10,66 @@
   font-weight: 600;
   padding: 20px;
 }
+
+.container {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.add-btn {
+  width: 100px;
+  cursor: pointer;
+  padding: 8px 14px;
+  border: none;
+  border-radius: 6px;
+  color: rgb(255, 255, 255);
+  background-color: rgb(206, 131, 33);
+}
+
+.add-btn:hover {
+  transition-duration: 0.4s;
+  background-color: rgb(172, 112, 33);
+}
+
+.addend {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+  height: 24px;
+}
+
+.addend > button {
+  width: 100px;
+  font-size: 0.75rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.addend > input {
+  width: 70px;
+  border-radius: 6px;
+  border: 1px solid black;
+}
+
+.addend > select {
+  border-radius: 6px;
+  border: 1px solid black;
+}
+
+.delete-btn {
+  background-color: rgb(185, 34, 34);
+  color: rgb(255, 255, 255);
+  font-weight: 500;
+}
+
+.delete-btn:hover {
+  background-color: rgb(129, 22, 22);
+  transition-duration: 0.4s;
+}
+
+.disable-btn {
+  background-color: rgb(172, 172, 172);
+}
