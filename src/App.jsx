@@ -25,7 +25,7 @@ export default function App() {
   function showSum() {
     let sum = 0;
     const numberArray = addends.map((item) => {
-      if (item.value === '') {
+      if (item.value === '' || item.isDisabled === true) {
         return 0;
       }
       if (item.sign === '-') {
