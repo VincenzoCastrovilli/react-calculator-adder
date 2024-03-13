@@ -1,0 +1,12 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: 600;
+  padding: 20px;
+}
